@@ -1,47 +1,69 @@
-A responsive hospital website built using modern web technologies to provide information about medical services, doctors, and healthcare facilities. The project focuses on creating a clean UI, easy navigation, and an informative platform for patients to explore hospital services online.
+**Hospital Website**
 
+A responsive Hospital Website built using modern web technologies to provide patients with clear information about hospital services, doctors, and healthcare facilities. The website focuses on a clean user interface, smooth navigation, and an organized layout so users can easily explore medical services online.
 
-Hospital Website – Healthcare Information Platform
+**Live Demo**
+https://69b1073be0e8d20d8dcc8d5f--cerulean-mousse-89d20e.netlify.app/
 
-This project is a responsive Hospital Website designed to provide patients with easy access to healthcare information through a modern and user-friendly interface. The website presents important details such as hospital services, doctor information, departments, and contact details in a structured and visually appealing way.
+**Project Overview**
 
-The goal of this project is to demonstrate front-end web development skills while building a real-world healthcare themed application.
+The Hospital Website is a front-end web application designed to simulate a real hospital information platform. It allows users to explore important healthcare information such as available services, medical specialists, and hospital departments.
 
-Key Features
+The main goal of this project is to build a modern healthcare interface that demonstrates practical front-end development skills and the ability to structure real-world web applications.
 
-Responsive and modern user interface
+**Key Features**
 
-Hero section with hospital introduction
+Responsive Design
+Works smoothly on desktop, tablet, and mobile devices.
 
-Services section explaining medical facilities
+Modern User Interface
+Clean and visually appealing layout designed for better user experience.
 
-Doctors / specialists information
+Hero Section
+Introduction section highlighting the hospital's mission and healthcare services.
 
-Appointment or contact section for patient communication
+Medical Services Section
+Displays the hospital's available medical facilities and treatments.
 
-Clean layout designed for easy navigation
+Doctors / Specialists Information
+Provides information about medical professionals and specialties.
 
-Technologies Used
+Contact / Appointment Section
+Allows users to find contact details or schedule appointments.
 
-HTML
+Easy Navigation
+Organized structure that helps users quickly find information.
 
-CSS
+**Technologies Used**
 
-JavaScript
+HTML – Structure of the website
 
-React.js
+CSS – Styling and layout design
 
-Purpose of the Project
+JavaScript – Interactive functionality
 
-This project was created to practice building real-world web applications, improve front-end development skills, and understand how healthcare websites present information to patients online.
+React.js – Component-based UI development
 
-Healthcare websites are important because they help users quickly access hospital services, doctor information, and medical resources in one place.
+**Purpose of the Project**
 
+This project was developed to:
 
-Live Demo: https://69b1073be0e8d20d8dcc8d5f--cerulean-mousse-89d20e.netlify.app/
+Practice building real-world web interfaces
 
-A responsive hospital website designed to provide patients with easy access to healthcare information, services, and doctor details through a modern and user-friendly interface.
+Improve React.js and front-end development skills
 
-One-Line Portfolio Version
+Understand how healthcare websites present information to patients
+
+Demonstrate the ability to design a clean and responsive UI
+
+Healthcare websites play an important role in helping patients quickly access information about hospital services, doctors, and medical facilities.
+
+**Live Preview**
+
+Visit the live website here:
+
+https://69b1073be0e8d20d8dcc8d5f--cerulean-mousse-89d20e.netlify.app/
+
+**Portfolio Summary**
 
 A modern responsive hospital website UI that showcases healthcare services, doctors, and hospital facilities using front-end web technologies.
