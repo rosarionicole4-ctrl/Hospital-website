@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, HeartPulse } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../utils/cn';
 
 const navLinks = [
@@ -22,34 +22,36 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
+        <div className="flex justify-between items-center h-20">
 
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
+          {/* 🔥 Logo + Name FIX */}
+          <Link to="/" className="flex items-center gap-2">
 
-              <div className="bg-blue-600 p-2 rounded-lg">
-                <img
-                  src="https://res.cloudinary.com/dgcyqntse/image/upload/v1773034671/medical_logo_drx9pc.png"
-                  alt="MediCarePlus Logo"
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
+            <img
+              src="https://res.cloudinary.com/dgcyqntse/image/upload/v1773725210/1000572077-removebg-preview_o0stug.png"
+              alt="Q9 Hospital Logo"
+              className="w-15 h-15 object-contain"
+            />
 
-              <span className="text-2xl font-bold text-slate-900 tracking-tight">
-                MediCare<span className="text-blue-600">Plus</span>
-              </span>
+            <div className="leading-tight">
+              <h1 className="text-sm font-bold text-slate-900 tracking-wide">
+                Q9 MULTY SPECIALITY
+              </h1>
+              <p className="text-xs text-blue-600 font-medium">
+                HOSPITAL
+              </p>
+            </div>
 
-            </Link>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
                   location.pathname === link.path
                     ? "bg-blue-50 text-blue-600"
                     : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
@@ -58,23 +60,26 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+
+            {/* 🔥 Book Now FIX */}
             <Link
               to="/appointment"
-              className="ml-4 px-6 py-2.5 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-200"
+              className="ml-3 px-5 py-2.5 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-md whitespace-nowrap"
             >
               Book Now
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-slate-600 hover:text-blue-600 hover:bg-slate-50"
+              className="p-2 rounded-md text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
+
         </div>
       </div>
 
@@ -103,12 +108,13 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+
               <Link
                 to="/appointment"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-xl text-base font-semibold mt-4"
+                className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-xl text-base font-semibold mt-4 whitespace-nowrap"
               >
-                Book Appointment
+                Book Now
               </Link>
             </div>
           </motion.div>

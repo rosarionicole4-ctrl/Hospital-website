@@ -1,33 +1,43 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import MainLayout from './layout/MainLayout';
-import HOME from './pages/Home';
-import ABOUT from './pages/About';
-import DOCTORS from './pages/Doctors';
-import DOCTORPROFILE from './pages/DoctorProfile';
-import DEPARTMENTS from './pages/Departments';
-import SERVICES from './pages/Services';
-import APPOINTMENT from './pages/Appointment';
-import GALLERY from './pages/Gallery';
+import ScrollToTop from "./components/ScrollToTop";
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Doctors from './pages/Doctors';
+import DoctorProfile from './pages/DoctorProfile';
+import Departments from './pages/Departments';
+import DepartmentDetails from './pages/DepartmentDetails';
+import Services from './pages/Services';
+import Appointment from './pages/Appointment';
+import Gallery from './pages/Gallery';
 import FAQ from './pages/FAQ';
-import CONTACT from './pages/Contact';
+import Contact from './pages/Contact';
 
 export default function App() {
   return (
     <Router>
+
+      {/* THIS FIXES YOUR SCROLL ISSUE */}
+      <ScrollToTop />
+
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<HOME />} />
-          <Route path="about" element={<ABOUT />} />
-          <Route path="doctors" element={<DOCTORS />} />
-          <Route path="doctors/:doctorId" element={<DOCTORPROFILE />} />
-          <Route path="departments" element={<DEPARTMENTS />} />
-          <Route path="services" element={<SERVICES />} />
-          <Route path="appointment" element={<APPOINTMENT />} />
-          <Route path="gallery" element={<GALLERY />} />
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="doctors" element={<Doctors />} />
+          <Route path="doctors/:doctorId" element={<DoctorProfile />} />
+          <Route path="departments" element={<Departments />} />
+          <Route path="departments/:id" element={<DepartmentDetails />} />
+          <Route path="services" element={<Services />} />
+          <Route path="appointment" element={<Appointment />} />
+          <Route path="gallery" element={<Gallery />} />
           <Route path="faq" element={<FAQ />} />
-          <Route path="contact" element={<CONTACT />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
+
     </Router>
   );
 }

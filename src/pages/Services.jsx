@@ -2,14 +2,61 @@ import { motion } from 'motion/react';
 import { Activity, Beaker, Heart, ShieldPlus, Stethoscope, Microscope, Pill, Ambulance } from 'lucide-react';
 
 const services = [
-  { icon: Activity, title: 'Diagnostic Imaging', desc: 'Advanced MRI, CT scans, and X-ray services for accurate diagnosis.' },
-  { icon: Beaker, title: 'Laboratory Services', desc: 'Comprehensive blood tests and pathology services with quick results.' },
-  { icon: Heart, title: 'Cardiology Center', desc: 'Expert heart care including ECG, TMT, and interventional procedures.' },
-  { icon: ShieldPlus, title: 'Health Checkups', desc: 'Preventive health screening packages tailored for all age groups.' },
-  { icon: Stethoscope, title: 'Outpatient Clinic', desc: 'Consultations with specialists across all medical disciplines.' },
-  { icon: Microscope, title: 'Cancer Care', desc: 'Comprehensive oncology services including chemotherapy and radiation.' },
-  { icon: Pill, title: 'Pharmacy', desc: '24/7 in-house pharmacy with a wide range of medicines and supplies.' },
-  { icon: Ambulance, title: 'Emergency Care', desc: 'Rapid response emergency services with advanced life support.' },
+  {
+    title: 'OPD Services',
+    desc: 'Comprehensive outpatient consulting and treatment across various specializations.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738187/1773731578212_d8fsov.png'
+  },
+  {
+    title: 'ICU',
+    desc: 'Intensive care unit equipped with advanced life support systems and 24/7 monitoring.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738188/1773731576507_wtgl4e.png'
+  },
+  {
+    title: 'Operation Theatre',
+    desc: 'State-of-the-art operation theatres for safe and sterile surgical procedures.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738188/1773731575184_nozwbi.png'
+  },
+  {
+    title: 'X-Ray',
+    desc: 'High-quality digital X-Ray imaging for quick and accurate diagnostics.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738188/1773731573913_fop35p.png'
+  },
+  {
+    title: 'ECG',
+    desc: 'Electrocardiogram services for immediate heart condition assessment.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738187/1773731568048_ie6oye.png'
+  },
+  {
+    title: 'Lab',
+    desc: 'Fully equipped medical laboratory for comprehensive blood and pathology tests.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738188/1773731566417_lobnmz.png'
+  },
+  {
+    title: 'Oxygen Supply',
+    desc: 'Uninterrupted medical grade oxygen supply across triage and inpatient facilities.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738187/1773731565144_fdj6y7.png'
+  },
+  {
+    title: 'Medical Shop',
+    desc: 'In-house pharmacy stocked with all essential medicines and supplies.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738187/1773731563811_hwqwd4.png'
+  },
+  {
+    title: 'Ambulance',
+    desc: 'Rapid response ambulance services equipped with life-saving apparatus.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738187/1773731553278_egjihy.png'
+  },
+  {
+    title: 'Lift Available',
+    desc: 'Dedicated elevator access ensuring easy mobility for patients and stretchers.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773738187/1773731517606_ayf4ur.png'
+  },
+  {
+    title: 'Home Services',
+    desc: 'Medical care, testing, and nursing services delivered at your doorstep.',
+    image: 'https://res.cloudinary.com/dgcyqntse/image/upload/v1773754155/1773731424239_kff2rq.png'
+  }
 ];
 
 export default function Services() {
@@ -35,13 +82,21 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all group"
+              className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all group overflow-hidden"
             >
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                <service.icon className="h-7 w-7 text-blue-600 group-hover:text-white transition-colors" />
+              <div className="h-48 w-full overflow-hidden bg-slate-100 relative">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-blue-900/0 transition-colors"></div>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-              <p className="text-slate-500 leading-relaxed text-sm">{service.desc}</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{service.title}</h3>
+                <p className="text-slate-500 leading-relaxed text-sm flex-grow">{service.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>

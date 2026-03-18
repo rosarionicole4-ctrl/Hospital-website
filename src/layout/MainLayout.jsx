@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import EmergencyBanner from '../components/EmergencyBanner';
 import { motion } from 'motion/react';
 
 export default function MainLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-slate-50 relative">
       <Navbar />
       <main className="flex-grow">
         <motion.div
@@ -17,6 +18,7 @@ export default function MainLayout() {
         </motion.div>
       </main>
       <Footer />
+      <EmergencyBanner />
     </div>
   );
 }

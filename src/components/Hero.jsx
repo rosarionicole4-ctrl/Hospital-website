@@ -27,7 +27,7 @@ export default function Hero() {
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
               Welcome to
               <br />
-              <span className="text-blue-500">MediCarePlus</span>
+              <span className="text-blue-500">Q9 Multy speciality Hospital</span>
             </h2>
             <p className="text-xl text-slate-300 mb-10 leading-relaxed">
               Providing world-class healthcare with experienced doctors,modern technology, and patient-centered care.

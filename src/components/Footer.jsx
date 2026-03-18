@@ -9,14 +9,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="bg-blue-600 p-2 rounded-lg">
+              <div className="p-1 bg-white rounded-lg">
                 <img
-                  src="https://res.cloudinary.com/dgcyqntse/image/upload/v1773034671/medical_logo_drx9pc.png"
-                  alt="MediCarePlus Logo"
-                  className="w-8 h-8 object-contain"
+                  src="https://res.cloudinary.com/dgcyqntse/image/upload/v1773725210/1000572077-removebg-preview_o0stug.png"
+                  alt="Q9 Multy speciality Hospital Logo"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight">MediCare<span className="text-blue-500">Plus</span></span>
+              <span className="text-2xl font-bold text-white tracking-tight">Q9 MULTY SPECIALITY <span className="text-blue-500">HOSPITAL</span></span>
             </Link>
             <p className="text-slate-400 leading-relaxed">
               Providing world-class healthcare services with a patient-first approach. Our mission is to improve lives through advanced medical technology and compassionate care.
@@ -64,18 +64,18 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-6">Contact Us</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-sm">
               <li className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-blue-500 shrink-0 mt-1" />
-                <span>123 Medical Center Way, Health City, HC 45678</span>
+                <MapPin className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
+                <span className="leading-relaxed">D.No: 10-21/1/6, Sriramanagar,<br />Near Petrol Bunk, Opp. GVMC Park,<br />Lankelapalem, Anakapalli Dist - 531019</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-500 shrink-0" />
-                <span>+91 6309116432</span>
+                <span>+91 7702021224<br />+91 7672021224</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-500 shrink-0" />
-                <span>contact@medicareplus.com</span>
+                <span>q9hospital2026@gmail.com</span>
               </li>
             </ul>
           </div>

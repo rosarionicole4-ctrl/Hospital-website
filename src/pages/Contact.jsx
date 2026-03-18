@@ -19,10 +19,10 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-6">
             {[
-              { icon: Phone, title: 'Call Us', info: '+1 (555) 123-4567', sub: '24/7 Emergency Support', color: 'bg-blue-600' },
-              { icon: Mail, title: 'Email Us', info: 'contact@medicareplus.com', sub: 'General Inquiries', color: 'bg-slate-800' },
-              { icon: MapPin, title: 'Visit Us', info: '123 Medical Center Way', sub: 'Health City, HC 45678', color: 'bg-blue-500' },
-              { icon: Clock, title: 'Working Hours', info: 'Mon-Sun: 24 Hours', sub: 'Emergency Services', color: 'bg-slate-700' },
+              { icon: Phone, title: 'Primary Call', info: '+91 7702021224', sub: '24/7 Availability', color: 'bg-blue-600' },
+              { icon: Phone, title: 'Secondary', info: '+91 7672021224', sub: 'Support & Inquiry', color: 'bg-teal-600' },
+              { icon: Mail, title: 'Email Us', info: 'q9hospital2026@gmail.com', sub: 'General Inquiries', color: 'bg-slate-800' },
+              { icon: MapPin, title: 'Visit Us', info: 'Sriramanagar, Lankelapalem', sub: 'Anakapalli Dist - 531019', color: 'bg-blue-500' },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -94,18 +94,36 @@ export default function Contact() {
         {/* Map Placeholder */}
         <div className="mt-24 bg-white rounded-[3rem] overflow-hidden shadow-xl border border-slate-100 h-[450px] relative">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093747!2d-122.4194155!3d37.7749295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050c58!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1625123456789!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.288282361664!2d83.08018!3d17.81882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39626305a468d7%3A0x6e8a4a5b2ab54b68!2sLankelapalem%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen={true}
             loading="lazy"
           ></iframe>
-          <div className="absolute top-8 left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-xs hidden md:block">
+          <div className="absolute top-8 left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-sm hidden md:block">
             <h4 className="font-bold text-slate-900 mb-2">Our Location</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              123 Medical Center Way, Health City, HC 45678. We are located in the heart of the city with easy access to public transport.
+            <p className="text-sm text-slate-500 leading-relaxed mb-4">
+              D.No: 10-21/1/6, Sriramanagar,<br/>
+              Near Petrol Bunk, Opp. GVMC Park,<br/>
+              Lankelapalem, Anakapalli Dist - 531019
             </p>
+            <div className="flex gap-3">
+              <a 
+                href="tel:+917702021224" 
+                className="flex-1 bg-blue-600 text-white text-center py-2.5 rounded-xl font-semibold text-sm hover:bg-blue-700 transition"
+              >
+                Call Now
+              </a>
+              <a 
+                href="https://wa.me/917702021224" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="flex-1 bg-emerald-500 text-white text-center py-2.5 rounded-xl font-semibold text-sm hover:bg-emerald-600 transition"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>

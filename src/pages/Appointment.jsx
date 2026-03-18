@@ -51,7 +51,7 @@ export default function Appointment() {
                 href="tel:+15551234567"
                 className="flex items-center justify-center w-full py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-blue-50 transition-all"
               >
-                <Phone className="mr-2 h-5 w-5" /> +1 (555) 123-4567
+                <Phone className="mr-2 h-5 w-5" /> +91  7702021224
               </a>
             </div>
           </div>

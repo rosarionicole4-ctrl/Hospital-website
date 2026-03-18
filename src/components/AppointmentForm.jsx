@@ -57,11 +57,11 @@ export default function AppointmentForm() {
         <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Patient Name</label>
+              <label className="text-sm font-semibold text-slate-700">Patient Full Name</label>
               <input
                 required
                 type="text"
-                placeholder="John Doe"
+                placeholder="FULL NAME"
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
@@ -72,7 +72,7 @@ export default function AppointmentForm() {
               <input
                 required
                 type="tel"
-                placeholder="+1 (555) 000-0000"
+                placeholder="+91 9087654321"
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 value={formData.phone}
                 onChange={e => setFormData({ ...formData, phone: e.target.value })}
@@ -83,7 +83,7 @@ export default function AppointmentForm() {
               <input
                 required
                 type="email"
-                placeholder="john@example.com"
+                placeholder="abc@example.com"
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 value={formData.email}
                 onChange={e => setFormData({ ...formData, email: e.target.value })}
