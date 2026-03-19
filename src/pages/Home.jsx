@@ -23,7 +23,11 @@ const testimonials = [
   { name: 'John Smith', role: 'Patient', text: 'The care I received was exceptional. The doctors and staff were professional and caring throughout my recovery.' },
   { name: 'Sarah Williams', role: 'Patient', text: 'State-of-the-art facilities and very knowledgeable doctors. Highly recommended.' },
   { name: 'Michael Brown', role: 'Patient', text: 'Booking was seamless. The pediatric team is wonderful. Truly a world-class hospital.' },
+  { name: 'Anjali Reddy', role: 'Patient', text: 'Doctors explained everything clearly and treatment was excellent.' },
+  { name: 'Rahul Kumar', role: 'Patient', text: 'Very clean hospital with friendly staff and quick service.' },
+  { name: 'Priya Sharma', role: 'Patient', text: 'Highly satisfied with the care and attention provided.' },
 ];
+
 
 export default function Home() {
   return (
@@ -196,30 +200,39 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
+
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               What Our Patients Say
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 bg-slate-50 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition"
-              >
-                <Quote className="mb-4 text-blue-600/20" />
-                <p className="italic mb-6">"{t.text}"</p>
-                <h4 className="font-bold">{t.name}</h4>
-                <p className="text-sm text-blue-600">{t.role}</p>
-              </motion.div>
-            ))}
+          {/* 🔥 SCROLL WRAPPER */}
+          <div className="overflow-hidden">
+
+            <div className="flex gap-8 animate-scroll">
+
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="min-w-[320px] max-w-[320px] p-8 bg-slate-50 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition"
+                >
+                  <Quote className="mb-4 text-blue-600/20" />
+                  <p className="italic mb-6">"{t.text}"</p>
+                  <h4 className="font-bold">{t.name}</h4>
+                  <p className="text-sm text-blue-600">{t.role}</p>
+                </motion.div>
+              ))}
+
+            </div>
+
           </div>
+
         </div>
       </section>
 

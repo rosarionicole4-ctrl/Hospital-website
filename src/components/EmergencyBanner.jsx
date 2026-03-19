@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone, AlertCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function EmergencyBanner() {
   const [isVisible, setIsVisible] = React.useState(true);
@@ -10,38 +10,45 @@ export default function EmergencyBanner() {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
+        initial={{ y: 80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 100, opacity: 0 }}
-        className="fixed bottom-4 right-4 z-[100] sm:bottom-8 sm:right-8"
+        exit={{ y: 80, opacity: 0 }}
+        className="fixed bottom-3 right-3 z-[100]"
       >
-        <div className="bg-red-600 text-white p-4 sm:p-5 rounded-2xl shadow-2xl flex flex-col md:flex-row items-center gap-4 sm:gap-6 border border-red-500 hover:bg-red-700 transition-colors cursor-default">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center animate-[pulse_2s_infinite]">
-              <AlertCircle className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-red-100 mb-0.5 uppercase tracking-wider">24/7 Emergency Services</p>
-              <p className="text-lg font-bold leading-none">Ambulance & Critical Care</p>
-            </div>
+        <div className="bg-red-600/95 backdrop-blur-md text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 border border-red-500 hover:bg-red-700 transition-all">
+
+          {/* Icon */}
+          <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
+            <AlertCircle className="w-4 h-4" />
           </div>
 
-          <div className="flex gap-2 w-full md:w-auto">
-            <a
-              href="tel:+917702021224"
-              className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-white text-red-600 px-6 py-2.5 rounded-xl font-bold hover:bg-red-50 transition-colors shadow-lg"
-            >
-              <Phone className="w-4 h-4" />
-              Call Now
-            </a>
-            <button
-              onClick={() => setIsVisible(false)}
-              className="px-4 bg-red-800/40 hover:bg-red-900/60 text-white rounded-xl transition-colors font-bold text-xl flex items-center justify-center"
-              aria-label="Close emergency banner"
-            >
-              &times;
-            </button>
+          {/* Text */}
+          <div className="leading-tight">
+            <p className="text-xs font-semibold text-red-100 uppercase">
+              24/7 Emergency
+            </p>
+            <p className="text-sm font-bold">
+              Ambulance & Care
+            </p>
           </div>
+
+          {/* Call Button */}
+          <a
+            href="tel:+917702021224"
+            className="flex items-center gap-1 bg-white text-red-600 px-3 py-1.5 rounded-lg text-sm font-bold hover:bg-red-50 transition"
+          >
+            <Phone className="w-3.5 h-3.5" />
+            Call
+          </a>
+
+          {/* Close */}
+          <button
+            onClick={() => setIsVisible(false)}
+            className="text-white/70 hover:text-white text-lg px-1"
+          >
+            ×
+          </button>
+
         </div>
       </motion.div>
     </AnimatePresence>

@@ -1,11 +1,13 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { departments } from '../data/departments';
 import { doctors } from '../data/doctors';
 import { CheckCircle2, Send } from 'lucide-react';
 
 export default function AppointmentForm() {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [formKey, setFormKey] = React.useState(0);
+
   const [formData, setFormData] = React.useState({
     name: '',
     phone: '',
@@ -17,13 +19,24 @@ export default function AppointmentForm() {
     message: ''
   });
 
+  // ✅ Filter doctors based on department
+  const filteredDoctors = doctors.filter(
+    (d) => !formData.department || d.department === formData.department
+  );
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     console.log('Appointment Data:', formData);
+
     setIsSubmitted(true);
-    // Reset form after 3 seconds
+
     setTimeout(() => {
       setIsSubmitted(false);
+
+      // 🔥 force new form
+      setFormKey(prev => prev + 1);
+
       setFormData({
         name: '',
         phone: '',
@@ -34,10 +47,9 @@ export default function AppointmentForm() {
         time: '',
         message: ''
       });
+
     }, 3000);
   };
-
-  const filteredDoctors = doctors.filter(d => !formData.department || d.departmentId === formData.department);
 
   return (
     <div className="bg-white rounded-3xl shadow-xl shadow-blue-900/5 border border-slate-100 overflow-hidden">
@@ -50,113 +62,158 @@ export default function AppointmentForm() {
           <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="h-10 w-10 text-emerald-600" />
           </div>
-          <h3 className="text-2xl font-bold text-slate-900 mb-2">Appointment Requested!</h3>
-          <p className="text-slate-500">We have received your request and will contact you shortly to confirm your appointment.</p>
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">
+            Appointment Requested!
+          </h3>
+          <p className="text-slate-500">
+            We have received your request and will contact you shortly.
+          </p>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-6">
+        <form key={formKey} onSubmit={handleSubmit} className="p-8 md:p-12 space-y-6">
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Patient Full Name</label>
+
+            {/* Name */}
+            <div>
+              <label className="text-sm font-semibold">Patient Full Name</label>
               <input
                 required
                 type="text"
-                placeholder="FULL NAME"
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                className="w-full px-4 py-3 rounded-xl border"
                 value={formData.name}
-                onChange={e => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Phone Number</label>
+
+            {/* Phone */}
+            <div>
+              <label className="text-sm font-semibold">Phone Number</label>
               <input
                 required
                 type="tel"
-                placeholder="+91 9087654321"
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                className="w-full px-4 py-3 rounded-xl border"
                 value={formData.phone}
-                onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Email Address</label>
+
+            {/* Email */}
+            <div>
+              <label className="text-sm font-semibold">Email</label>
               <input
                 required
                 type="email"
-                placeholder="abc@example.com"
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                className="w-full px-4 py-3 rounded-xl border"
                 value={formData.email}
-                onChange={e => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Department</label>
+
+            {/* Department */}
+            <div>
+              <label className="text-sm font-semibold">Department</label>
               <select
                 required
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none bg-white"
+                className="w-full px-4 py-3 rounded-xl border"
                 value={formData.department}
-                onChange={e => setFormData({ ...formData, department: e.target.value, doctor: '' })}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    department: e.target.value,
+                    doctor: ''
+                  })
+                }
               >
                 <option value="">Select Department</option>
-                {departments.map(dept => (
-                  <option key={dept.id} value={dept.id}>{dept.title}</option>
+                {departments.map((dept) => (
+                  <option key={dept.id} value={dept.id}>
+                    {dept.title}
+                  </option>
                 ))}
               </select>
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Select Doctor</label>
+
+            {/* Doctor */}
+            <div>
+              <label className="text-sm font-semibold">Doctor</label>
               <select
                 required
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none bg-white"
+                disabled={!formData.department}
+                className="w-full px-4 py-3 rounded-xl border"
                 value={formData.doctor}
-                onChange={e => setFormData({ ...formData, doctor: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, doctor: e.target.value })
+                }
               >
                 <option value="">Select Doctor</option>
-                {filteredDoctors.map(doc => (
-                  <option key={doc.id} value={doc.id}>{doc.name}</option>
+                {filteredDoctors.map((doc) => (
+                  <option key={doc.id} value={doc.id}>
+                    {doc.name}
+                  </option>
                 ))}
               </select>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700">Date</label>
-                <input
-                  required
-                  type="date"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
-                  value={formData.date}
-                  onChange={e => setFormData({ ...formData, date: e.target.value })}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700">Time</label>
-                <input
-                  required
-                  type="time"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
-                  value={formData.time}
-                  onChange={e => setFormData({ ...formData, time: e.target.value })}
-                />
-              </div>
+
+            {/* Date */}
+            <div>
+              <label className="text-sm font-semibold">Date</label>
+              <input
+                required
+                type="date"
+                min={new Date().toISOString().split("T")[0]}
+                className="w-full px-4 py-3 rounded-xl border"
+                value={formData.date}
+                onChange={(e) =>
+                  setFormData({ ...formData, date: e.target.value })
+                }
+              />
             </div>
+
+            {/* Time */}
+            <div>
+              <label className="text-sm font-semibold">Time</label>
+              <input
+                required
+                type="time"
+                className="w-full px-4 py-3 rounded-xl border"
+                value={formData.time}
+                onChange={(e) =>
+                  setFormData({ ...formData, time: e.target.value })
+                }
+              />
+            </div>
+
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-slate-700">Message (Optional)</label>
+
+          {/* Message */}
+          <div>
+            <label className="text-sm font-semibold">Message</label>
             <textarea
               rows={4}
-              placeholder="Tell us about your symptoms or concerns..."
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
+              className="w-full px-4 py-3 rounded-xl border"
               value={formData.message}
-              onChange={e => setFormData({ ...formData, message: e.target.value })}
-            ></textarea>
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+            />
           </div>
+
+          {/* Submit */}
           <button
             type="submit"
-            className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 flex items-center justify-center group"
+            className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold flex items-center justify-center"
           >
             Confirm Appointment
-            <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <Send className="ml-2 h-5 w-5" />
           </button>
+
         </form>
       )}
     </div>
